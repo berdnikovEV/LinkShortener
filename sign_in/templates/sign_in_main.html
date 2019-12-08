@@ -2,5 +2,15 @@
 
 
 {% block content %}
-
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="username">Login</label>
+    <input type="text" id="username" name="username" value= {% if login %} '{{login}}' {% else %} '' {% endif %}>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <br>
+    <input type="submit" value="Sign In">
+  </form>
 {% endblock %}
