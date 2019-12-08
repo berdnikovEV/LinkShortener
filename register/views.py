@@ -14,6 +14,16 @@ def register(request):
         login = request.POST['login'] 
         email = request.POST['email']
         password = request.POST['password']
+        password_confirmation = request.POST['password_confirmation']
+        
+        if '' in (login, email, password):
+            messages.add_message(request, messages.WARNING, "All fields must be filled")
+            return render(request, 'register_main.html', {'login':login, 'email':email})
+
+
+        if password !=  password_confirmation:
+            messages.add_message(request, messages.WARNING, "Password didn't match its confirmation")
+            return render(request, 'register_main.html', {'login':login, 'email':email})
 
         if email not in current_user_email_list and login not in current_user_login_list:
             user = User.objects.create_user(login, email=email, password=password)
