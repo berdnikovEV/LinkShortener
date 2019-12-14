@@ -2,5 +2,15 @@
 
 
 {% block content %}
-
+<form action="" method="POST">
+  {% csrf_token %}
+  <label for="initial_url">E-mail</label>
+  <input type="url" id="initial_url" name="initial_url">
+  <br>
+  <label for="url_tags">Tags (separate tags by ', ')</label>
+  <input type="url_tags" id="url_tags" name="url_tags">
+  <br>
+  <br>
+  <input type="submit" value="Register">
+</form>
 {% endblock %}
