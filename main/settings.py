@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'register',
     'shorten',
     'sign_in',
+    'applier',
 ]
 
 MIDDLEWARE = [
