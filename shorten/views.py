@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ShortenedLink
 from django.contrib.auth.decorators import login_required
 
@@ -15,6 +15,9 @@ def shorten(request):
                                 initial_url=init_url,
                                 tags=tags)
         url_obj.save()
+        messages.add_message(request, messages.SUCCESS, f"Successsfully shortened {url_obj.initial_url} to {url_obj.short_code}")
+
+        return redirect('shorten-success')
     return render(request, 'shorten_main.html', {})
 
 
