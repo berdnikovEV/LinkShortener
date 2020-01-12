@@ -9,6 +9,8 @@ class ShortenedLink(models.Model):
     tags = models.CharField(max_length=100)
     owner_username = models.CharField(max_length=32)
 
+    usage_count = models.IntegerField(default=0)
+
     def __str__(self):
         return str(self.short_code)
 

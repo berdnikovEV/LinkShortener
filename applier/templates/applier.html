@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ is_valid }}</title>
+</head>
+<body>
+    {% if is_valid %}
+        <p>Tags for that link: {{ tag_list }}</p><br>
+        <p>You will be redirected in 3 seconds</p>
+        <meta http-equiv="refresh" content="3; url = {{destination}}"/>
+    {% else %}
+        <p>{{ exc }}</p>
+    {% endif %}
+</body>
+</html>
