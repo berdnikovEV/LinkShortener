@@ -6,7 +6,11 @@
 </head>
 <body>
     {% if is_valid %}
-        <p>Tags for that link: {{ tag_list }}</p><br>
+        <p>Tags for that link: 
+            {% for tag in tag_list %}
+                <a href='../search/{{ tag }}'>{{ tag }}</a>, 
+            {% endfor %}
+        </p><br>
         <p>You will be redirected in 3 seconds</p>
         <meta http-equiv="refresh" content="3; url = {{destination}}"/>
     {% else %}
