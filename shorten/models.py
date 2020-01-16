@@ -1,12 +1,16 @@
 from django.db import models
 from .utils import get_new_code
+from django.contrib.postgres.fields import ArrayField
 
 
 class ShortenedLink(models.Model):
     initial_url = models.CharField(max_length=100)
     short_code = models.CharField(max_length=6, unique=True)
 
-    tags = models.CharField(max_length=100)
+    tags = ArrayField(
+        models.CharField(max_length=10, blank=True),
+        size=10
+    )
     owner_username = models.CharField(max_length=32)
 
     usage_count = models.IntegerField(default=0)
