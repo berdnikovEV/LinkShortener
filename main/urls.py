@@ -7,5 +7,6 @@ urlpatterns = [
     path('register/', include('register.urls')),
     path('sign_in/', include('sign_in.urls')),
     path('shorten/', include('shorten.urls')),
+    path('tags/', include('tag_search.urls')),
     path('', include('applier.urls'))
 ]

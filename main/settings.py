@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shorten',
     'sign_in',
     'applier',
+    'tag_search',
 ]
 
 MIDDLEWARE = [

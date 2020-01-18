@@ -9,7 +9,7 @@ class ShortenedLink(models.Model):
 
     tags = ArrayField(
         models.CharField(max_length=10, blank=True),
-        size=10
+        size=1
     )
     owner_username = models.CharField(max_length=32)
 
