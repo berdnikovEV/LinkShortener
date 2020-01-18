@@ -8,11 +8,13 @@ from django.contrib import messages
 def shorten(request):
     if request.method == 'POST':
         init_url = request.POST['initial_url']
+        description = request.POST['description']
         tags = request.POST['url_tags']
         user = request.user
         tag_list = tags.split(sep=', ')
         url_obj = ShortenedLink(owner_username=user,
                                 initial_url=init_url,
+                                description=description,
                                 tags=tag_list,
                                 usage_count=0)
         url_obj.save()
