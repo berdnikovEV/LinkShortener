@@ -9,8 +9,9 @@ class ShortenedLink(models.Model):
 
     tags = ArrayField(
         models.CharField(max_length=10, blank=True),
-        size=1
+        size=10
     )
+    description = models.CharField(max_length=1000, default='', blank=True)
     owner_username = models.CharField(max_length=32)
 
     usage_count = models.IntegerField(default=0)
