@@ -4,5 +4,6 @@ from django.shortcuts import redirect
 from applier import views
 
 urlpatterns = [
-    re_path('^(?P<short_code>[a-zA-Z0-9]{6})/', views.applier)
+    re_path('^(?P<short_code>[a-zA-Z0-9]{6})/info', views.link_info),
+    re_path('^(?P<short_code>[a-zA-Z0-9]{6})/', views.applier),
 ]

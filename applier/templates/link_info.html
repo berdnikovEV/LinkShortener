@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ is_valid }}</title>
+</head>
+<body>
+    {% if is_valid %}
+        {% if is_owner %}
+            <form method="POST">
+                {% csrf_token %}
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" value='{{description}}'/>
+                <br>
+                <label for="url_tags">Tags (separate tags by ', ')</label>
+                <input type="text" id="url_tags" name="url_tags" value="{{tag_text}}"/>
+                <br>
+                <br>
+                <input type="submit" value="Confirm changes">
+            </form>
+        {% else %}
+            <p>Tags for that link: 
+                {% for tag in tag_list %}
+                    <a href='../tags/{{ tag }}'>{{ tag }}</a>, 
+                {% endfor %}
+            </p><br/>
+            <p>Description: {{ description }}</p><br/>
+        {% endif %}
+        <p>You can use this link <a href='.'>here</a> </p>
+    {% else %}
+        <p>{{ exc }}</p>
+    {% endif %}
+</body>
+</html>
