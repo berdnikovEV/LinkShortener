@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ is_valid }}</title>
+</head>
+<body>
+    {% if is_valid %}
+        <p>tag: {{ tag }}</p><br/>
+        <p>links: <br/>
+        {% for code in code_list %}
+            <a href="../../{{code}}">{{code}}</a><br/>
+        {% endfor %}
+        </p>
+    {% else %}
+        <p>{{ exc }}</p>
+    {% endif %}
+</body>
+</html>
