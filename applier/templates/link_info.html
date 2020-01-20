@@ -7,6 +7,8 @@
 <body>
     {% if is_valid %}
         {% if is_owner %}
+            <p>Your link has been used {{usage_count}} times already!</p>
+
             <form method="POST">
                 {% csrf_token %}
                 <label for="description">Description</label>

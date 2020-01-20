@@ -41,7 +41,8 @@ def link_info(request, short_code=''):
             'is_owner': is_owner,
             'description': obj.description,
             'tag_list': obj.tags,
-            'tag_text': ', '.join(obj.tags)
+            'tag_text': ', '.join(obj.tags),
+            'usage_count': obj.usage_count
         }
         return render(request, 'link_info.html', context)
     else:
